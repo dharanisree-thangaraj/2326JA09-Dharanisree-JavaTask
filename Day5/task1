@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+class Student {
+    int id;
+    String name;
+    String department;
+    Student(int id, String name, String department) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+    }
+    void display() {
+        System.out.println("ID: " + id + ", Name: " + name + ", Department: " + department);
+    }
+}
+public class StudentList {
+    public static void main(String[] args) {
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(new Student(101, "Alice", "Computer Science"));
+        students.add(new Student(102, "Bob", "Mechanical"));
+        students.add(new Student(103, "Charlie", "Electrical"));
+        System.out.println("--- Student List ---");
+        Iterator<Student> iterator = students.iterator();
+        while (iterator.hasNext()) {
+            Student s = iterator.next();
+            s.display();
+        }
+    }
+}
