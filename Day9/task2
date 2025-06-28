@@ -1,0 +1,30 @@
+Entities and Attributes
+1. Book
+Attributes: book_id, title, price, isbn, publisher_id
+
+2. Author
+Attributes: author_id, name, bio
+
+3. Publisher
+Attributes: publisher_id, name, address
+
+4. Book_Author (Associative Table)
+Attributes: book_id, author_id
+
+
+
+Functional Dependencies (FDs)
+Table	Functional Dependencies (FDs)
+Book	book_id → title, price, isbn, publisher_id
+Author	author_id → name, bio
+Publisher	publisher_id → name, address
+Book_Author	Composite key: book_id, author_id (no non-key attributes)
+
+
+
+
+Table	Primary Key	Foreign Keys
+books	book_id	publisher_id → publishers
+authors	author_id	—
+publishers	publisher_id	—
+book_authors	book_id, author_id	book_id → books, author_id → authors
