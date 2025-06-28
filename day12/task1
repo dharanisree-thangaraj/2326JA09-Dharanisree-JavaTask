@@ -1,1 +1,4 @@
+SELECT students.student_id, students.name, marks.subject, marks.mark
+FROM students
+JOIN marks ON students.student_id = marks.student_id;
 
