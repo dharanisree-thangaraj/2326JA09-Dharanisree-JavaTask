@@ -1,14 +1,12 @@
-import java.util.Scanner;
-public class SplitWords {
+public class LeapYear {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a sentence: ");
-        String sentence = sc.nextLine();
-        String[] words = sentence.split("\\s+"); 
-        System.out.println("Words in the sentence:");
-        for (String word : words) {
-            System.out.println(word);
-        }
-        sc.close();
+        int year = 2024;
+        if (isLeap(year))
+            System.out.println(year + " is a leap year.");
+        else
+            System.out.println(year + " is not a leap year.");
+    }
+    static boolean isLeap(int y) {
+        return (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
     }
 }
