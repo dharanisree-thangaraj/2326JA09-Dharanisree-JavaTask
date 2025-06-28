@@ -1,0 +1,107 @@
+ Identify Entities & Attributes
+🧑‍🎓 Student
+student_id (PK)
+
+name
+
+email
+
+dept_id (FK)
+
+📚 Course
+course_id (PK)
+
+course_name
+
+credits
+
+dept_id (FK)
+
+🏢 Department
+dept_id (PK)
+
+dept_name
+
+location
+
+📝 Registration (Many-to-Many: Student ↔ Course)
+registration_id (PK)
+
+student_id (FK)
+
+course_id (FK)
+
+registration_date
+
+
+
+
+
+
+
+ER Diagram
+
+
+
+Department (dept_id, dept_name, location)
+      |
+      | 1..*               1..*
+      |                      \
+Student (student_id, name, email, dept_id)
+      |
+      | 1..*              *..1
+Registration (registration_id, student_id, course_id, registration_date)
+      |
+      | *..1
+Course (course_id, course_name, credits, dept_id)
+
+
+
+
+
+Normalize to 3NF
+All entities are already designed for:
+
+1NF: Atomic fields
+
+2NF: No partial dependencies (every non-key depends on full key)
+
+3NF: No transitive dependencies
+
+
+
+CREATE TABLE departments (
+    dept_id INT PRIMARY KEY AUTO_INCREMENT,
+    dept_name VARCHAR(100) NOT NULL,
+    location VARCHAR(100)
+);
+
+
+CREATE TABLE students (
+    student_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+        ON DELETE SET NULL
+);
+
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY AUTO_INCREMENT,
+    course_name VARCHAR(100) NOT NULL,
+    credits INT,
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+        ON DELETE SET NULL
+);
+
+CREATE TABLE registrations (
+    registration_id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    course_id INT,
+    registration_date DATE DEFAULT CURRENT_DATE,
+    FOREIGN KEY (student_id) REFERENCES students(student_id)
+        ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+        ON DELETE CASCADE
+);
