@@ -1,0 +1,23 @@
+SELECT * FROM employees
+WHERE name LIKE '%john%';
+
+
+SELECT * FROM employees
+WHERE department = 'Sales';
+
+
+SELECT * FROM employees
+WHERE salary > 50000;
+
+
+sort
+
+SELECT * FROM employees
+ORDER BY salary ASC;
+
+SELECT * FROM employees
+ORDER BY hire_date DESC;
+
+
+SELECT * FROM employees
+ORDER BY department ASC, name ASC;
