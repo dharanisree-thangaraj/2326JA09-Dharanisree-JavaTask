@@ -1,0 +1,44 @@
+SELECT 
+    d.dept_name,
+    COUNT(e.emp_id) AS employee_count
+FROM 
+    departments d
+LEFT JOIN 
+    employees e ON d.dept_id = e.dept_id
+GROUP BY 
+    d.dept_name;
+
+
+SELECT 
+    d.dept_name,
+    AVG(e.salary) AS avg_salary
+FROM 
+    departments d
+LEFT JOIN 
+    employees e ON d.dept_id = e.dept_id
+GROUP BY 
+    d.dept_name;
+
+
+SELECT 
+    d.dept_name,
+    SUM(e.salary) AS total_salary
+FROM 
+    departments d
+LEFT JOIN 
+    employees e ON d.dept_id = e.dept_id
+GROUP BY 
+    d.dept_name;
+
+
+SELECT 
+    d.dept_name,
+    e.name,
+    e.salary,
+    e.hire_date
+FROM 
+    departments d
+JOIN 
+    employees e ON d.dept_id = e.dept_id
+ORDER BY 
+    d.dept_name, e.name;
