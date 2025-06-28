@@ -1,0 +1,21 @@
+public class BankAccount {
+    double balance;
+    BankAccount(double initialBalance) {
+        balance = initialBalance;
+    }
+    void deposit(double amount) {
+        if (amount > 0) balance += amount;
+    }
+    void withdraw(double amount) {
+        if (amount > 0 && amount <= balance)
+            balance -= amount;
+}
+    void showBalance() {
+        System.out.println("Current Balance: " + balance);
+    public static void main(String[] args) {
+        BankAccount acc = new BankAccount(1000);
+        acc.deposit(500);
+        acc.withdraw(200);
+        acc.showBalance();  
+    }
+}
