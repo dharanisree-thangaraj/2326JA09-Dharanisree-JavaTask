@@ -1,3 +1,7 @@
-SELECT dept, AVG(salary) AS avg_salary
-FROM employees
-GROUP BY dept;
+SELECT *
+FROM students
+WHERE performance_score = (
+    SELECT MAX(performance_score)
+    FROM students
+);
+
