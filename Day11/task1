@@ -1,0 +1,12 @@
+SELECT 
+    c.course_id, 
+    c.course_name, 
+    COUNT(r.student_id) AS student_count
+FROM 
+    courses c
+LEFT JOIN 
+    registrations r ON c.course_id = r.course_id
+GROUP BY 
+    c.course_id, c.course_name
+ORDER BY 
+    student_count DESC;
