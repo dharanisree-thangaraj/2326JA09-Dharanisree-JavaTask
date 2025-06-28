@@ -1,0 +1,19 @@
+public class StudentGrade {
+    public static void main(String[] args) {
+        int marks = 78; 
+        String grade = getGrade(marks);
+        printResult(marks, grade);
+    }
+    static String getGrade(int m) {
+        if (m >= 90) return "A";
+        else if (m >= 80) return "B";
+        else if (m >= 70) return "C";
+        else if (m >= 60) return "D";
+        else if (m >= 50) return "E";
+        else return "F (Fail)";
+    }
+    static void printResult(int marks, String grade) {
+        System.out.println("Marks: " + marks);
+        System.out.println("Grade: " + grade);
+    }
+}
