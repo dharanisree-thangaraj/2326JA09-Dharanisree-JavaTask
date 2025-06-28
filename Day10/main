@@ -1,0 +1,21 @@
+SELECT * FROM customers
+WHERE city = 'New York';
+
+
+SELECT * FROM customers
+WHERE age BETWEEN 25 AND 40;
+
+
+SELECT * FROM customers
+WHERE name LIKE '%john%';
+
+
+SELECT * FROM customers
+WHERE registration_date > '2024-01-01';
+
+
+SELECT * FROM customers
+WHERE city = 'New York'
+  AND age >= 30
+  AND name LIKE '%smith%';
+
