@@ -1,0 +1,25 @@
+Author
+-------
+author_id (PK)
+name
+bio
+
+Publisher
+----------
+publisher_id (PK)
+name
+address
+
+Book
+-----
+book_id (PK)
+title
+price
+isbn
+publisher_id (FK) → Publisher
+
+Book_Author (Associative Entity for Many-to-Many)
+-------------
+book_id (FK) → Book
+author_id (FK) → Author
+PRIMARY KEY (book_id, author_id)
