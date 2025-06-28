@@ -1,0 +1,105 @@
+ Identify Entities and Attributes
+1. Book
+book_id (PK)
+
+title
+
+author
+
+genre
+
+publisher
+
+available_copies
+
+2. Member
+member_id (PK)
+
+name
+
+email
+
+membership_date
+
+3. Loan
+loan_id (PK)
+
+book_id (FK)
+
+member_id (FK)
+
+loan_date
+
+due_date
+
+return_date
+
+4. Staff
+staff_id (PK)
+
+name
+
+email
+
+position
+
+Staff (staff_id, name, email, position)
+
+Book (book_id, title, author, genre, publisher, available_copies)
+     |
+     | 1 ----- * 
+     |
+Loan (loan_id, book_id, member_id, loan_date, due_date, return_date)
+     |
+     | * ----- 1
+     |
+Member (member_id, name, email, membership_date)
+
+
+
+| Entity | Functional Dependencies                                          |
+| ------ | ---------------------------------------------------------------- |
+| Book   | `book_id → title, author, genre, publisher, available_copies`    |
+| Member | `member_id → name, email, membership_date`                       |
+| Staff  | `staff_id → name, email, position`                               |
+| Loan   | `loan_id → book_id, member_id, loan_date, due_date, return_date` |
+
+
+
+
+CREATE TABLE staff (
+    staff_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    position VARCHAR(50)
+);
+
+
+CREATE TABLE books (
+    book_id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(150) NOT NULL,
+    author VARCHAR(100),
+    genre VARCHAR(50),
+    publisher VARCHAR(100),
+    available_copies INT DEFAULT 0
+);
+
+
+CREATE TABLE members (
+    member_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    membership_date DATE DEFAULT CURRENT_DATE
+);
+
+
+CREATE TABLE loans (
+    loan_id INT PRIMARY KEY AUTO_INCREMENT,
+    book_id INT,
+    member_id INT,
+    loan_date DATE DEFAULT CURRENT_DATE,
+    due_date DATE,
+    return_date DATE,
+    FOREIGN KEY (book_id) REFERENCES books(book_id) ON DELETE CASCADE,
+    FOREIGN KEY (member_id) REFERENCES members(member_id) ON DELETE CASCADE
+);
