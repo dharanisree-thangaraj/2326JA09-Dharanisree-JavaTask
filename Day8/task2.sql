@@ -1,9 +1,9 @@
 INSERT INTO students (name, email, age) VALUES 
-('Alice', 'alice.johnson@example.com', 20),
-('Bob Smith', 'bob.smith@example.com', 22),
-('Charlie Brown', 'charlie.brown@example.com', 21),
-('Diana Prince', 'diana.prince@example.com', 23),
-('Ethan Hunt', 'ethan.hunt@example.com', 24);
+('sana', 'sana@gmail.com', 20),
+('janani', 'jan@gmail.com', 22),
+('Charun', 'charun@gmail.com', 21),
+('Sasmitha', 'sasmitha@gmail.com', 23),
+('Dharani', 'dharanit@gmail.com', 24);
 
 INSERT INTO courses (course_name, description) VALUES
 ('Java Programming', 'Learn object-oriented programming with Java'),
